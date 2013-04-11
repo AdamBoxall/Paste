@@ -5,7 +5,7 @@
     <h2>Latest Pastes</h2>
     <ul>
         {% for paste in pastes %}
-            <li><a href="/{{ paste.hexId }}">{{ paste.normalisedTitle }}</a></li>
+            <li><a href="/{{ paste.hexId }}">{{ paste.normalisedTitle }} ({{ paste.createdFormatted }})</a></li>
         {% endfor %}
     </ul>
 

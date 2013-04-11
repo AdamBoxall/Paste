@@ -50,6 +50,17 @@ class Paste
         return $this;
     }
 
+    public function getSyntaxId()
+    {
+        return $this->syntax_id;
+    }
+
+    public function setSyntaxId($syntax_id)
+    {
+        $this->syntax_id = $syntax_id;
+        return $this;
+    }
+
     public function getSyntax()
     {
         return $this->syntax;
@@ -77,12 +88,12 @@ class Paste
         return $this->created;
     }
 
-    public function getCreatedDisplay()
+    public function getCreatedFormatted()
     {
-        return $this->created->format('d/m/Y');
+        return (new \DateTime($this->created))->format('d/m/Y h:i:s');
     }
 
-    public function setCreated(\DateTime $created)
+    public function setCreated($created)
     {
         $this->created = $created;
         return $this;
@@ -90,10 +101,15 @@ class Paste
 
     public function getExpires()
     {
-        return new DateTime($this->expires);
+        return $this->expires;
     }
 
-    public function setExpires(\DateTime $expires)
+    public function getExpiresFormatted()
+    {
+        return (new \DateTime($this->created))->format('d/m/Y h:i:s');
+    }
+
+    public function setExpires($expires)
     {
         $this->expires = $expires;
         return $this;
@@ -111,16 +127,20 @@ class Paste
             $paste->setTitle($row['title']);
         }
 
+        if (isset($row['syntax_id'])) {
+            $paste->setSyntaxId($row['syntax_id']);
+        }
+
         if (isset($row['body'])) {
             $paste->setBody($row['body']);
         }
 
         if (isset($row['created'])) {
-            $paste->setCreated(new \DateTime($row['created']));
+            $paste->setCreated($row['created']);
         }
 
         if (!empty($row['expires'])) {
-            $paste->setExpires(new \DateTime($row['expires']));
+            $paste->setExpires($row['expires']);
         }
 
         return $paste;

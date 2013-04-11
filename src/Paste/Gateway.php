@@ -3,6 +3,8 @@
 namespace Paste;
 
 use Doctrine\DBAL\Connection;
+use Paste\Entity\Paste;
+use Paste\Entity\Syntax;
 use Paste\Entity\Repository\Pastes;
 use Paste\Entity\Repository\Syntaxes;
 use Paste\Exception\PasteNotFoundException;
@@ -39,6 +41,11 @@ class Gateway
     public function getSyntaxList()
     {
         return $this->getSyntaxRepository()->findAll();
+    }
+
+    public function createPaste(Paste $paste)
+    {
+        return $this->getPasteRepository()->create($paste);
     }
 
     protected function getPasteRepository()

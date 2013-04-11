@@ -3,6 +3,8 @@
 namespace Paste\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Paste\Entity\Paste;
+use Paste\Entity\Syntax;
 use Paste\Controller\AbstractController;
 
 class PasteController extends AbstractController
@@ -13,11 +15,13 @@ class PasteController extends AbstractController
 
             // Validation, maybe?
 
-            $this->getPasteRepository()->save(
+            $this->gateway->createPaste(
                 Paste::fromArray($request->request->get('paste'))
             );
 
-            return $this->redirect('/create');
+            // Make sure it was successful too, maybe?
+
+            return $this->redirect('/');
         }
 
         $syntaxes = $this->gateway->getSyntaxList();
@@ -38,9 +42,9 @@ class PasteController extends AbstractController
         );
     }
 
-    public function viewAction($pasteId)
+    public function viewAction($pasteHex)
     {
-        $paste = $this->gateway->getPaste($pasteId);
+        $paste = $this->gateway->getPaste(hexdec($pasteHex));
 
         return $this->render(
             'view.twig',

@@ -57,9 +57,15 @@ class Pastes extends AbstractRepository
         }
     }
 
-    public function save(Paste $paste)
+    public function create(Paste $paste)
     {
-        // TODO
+        $this->adapter->insert('pastes', [
+            'id'        => $paste->getId(),
+            'title'     => $paste->getTitle(),
+            'syntax_id' => $paste->getSyntaxId(),
+            'body'      => $paste->getBody(),
+            'created'   => (new \DateTime('now'))->format('Y-m-d H:i:s')
+        ]);
     }
 
     protected function createModel(array &$row)
