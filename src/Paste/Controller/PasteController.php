@@ -11,6 +11,8 @@ class PasteController extends AbstractController
     {
         if ($request->isMethod('POST')) {
 
+            // Validation, maybe?
+
             $this->getPasteRepository()->save(
                 Paste::fromArray($request->request->get('paste'))
             );

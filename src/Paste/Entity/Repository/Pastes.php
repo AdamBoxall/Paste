@@ -43,7 +43,7 @@ class Pastes extends AbstractRepository
     {
         $pastes = $this->adapter->fetchAll("
             select {$this->fields}
-            from paste p
+            from pastes p
             join syntaxes s on (
                 p.syntax_id = s.id
             )

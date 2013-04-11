@@ -52,8 +52,8 @@ $app->error(function(PasteNotFoundException $e) {
 // Define routes
 $app->match('/', 'paste.controller:createAction');
 $app->match('/contact', 'paste.controller:contactAction');
-$app->get('/latest', 'paste.controller:latestAcion');
-$app->get('/about', 'paste.controller.aboutAction');
+$app->get('/latest', 'paste.controller:latestAction');
+$app->get('/about', 'paste.controller:aboutAction');
 $app->get('/{pasteId}', 'paste.controller:viewAction')->assert('pasteId', '[a-zA-Z0-9]+');
 
 return $app;
