@@ -27,8 +27,10 @@ class PasteController extends AbstractController
         $syntaxes = $this->gateway->getSyntaxList();
 
         return $this->render(
-            'create.twig',
-            ['syntaxes' => $syntaxes]
+            'create.twig', [
+                'syntaxes' => $syntaxes,
+                'selected' => 'create'
+            ]
         );
     }
 
@@ -37,8 +39,10 @@ class PasteController extends AbstractController
         $pastes = $this->gateway->getLatestPastes();
 
         return $this->render(
-            'latest.twig',
-            ['pastes' => $pastes]
+            'latest.twig', [
+                'pastes' => $pastes,
+                'selected' => 'latest'
+            ]
         );
     }
 
@@ -47,18 +51,28 @@ class PasteController extends AbstractController
         $paste = $this->gateway->getPaste(hexdec($pasteHex));
 
         return $this->render(
-            'view.twig',
-            ['paste' => $paste]
+            'view.twig', [
+                'paste' => $paste,
+                'selected' => 'view'
+            ]
         );
     }
 
     public function aboutAction()
     {
-        return $this->render('about.twig');
+        return $this->render(
+            'about.twig', [
+                'selected' => 'about'
+            ]
+        );
     }
 
     public function contactAction(Request $request)
     {
-        return $this->render('contact.twig');
+        return $this->render(
+            'contact.twig', [
+                'selected' => 'contact'
+            ]
+        );
     }
 }

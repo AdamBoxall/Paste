@@ -2,17 +2,34 @@
 <html>
     <head>
         <title>{% block title %}Paste{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
     </head>
     <body>
-        <h1>Paste Bang!</h1>
-        <ul>
-            <li><a href="/">Create</a></li>
-            <li><a href="/latest">Latest</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-        <hr>
-        {% block main %}
-        {% endblock %}
+
+        <div class="wrapper">
+            <div class="bar-shadow">
+                <div class="bar">
+                    <div class="island">
+                        <div class="bar-left">
+                            <h1><a href="/">Paste</a></h1>
+                        </div>
+                        <ul class="bar-right">
+                            <li><a{% if selected == 'create' %} class="selected"{% endif %} href="/">Create</a></li><!--
+                         --><li><a{% if selected == 'about' %} class="selected"{% endif %}  href="/about">About</a></li><!--
+                         --><li><a{% if selected == 'contact' %} class="selected"{% endif %}  href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="island">
+                {% block main %}{% endblock %}
+                <div class="push"></div>
+            </div>
+        </div>
+
+        <div class="footer island">
+            <p>&copy; 2013 Adam Boxall</p>
+        </div>
+
     </body>
 </html>

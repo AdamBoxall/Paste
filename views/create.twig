@@ -5,23 +5,23 @@
     <h2>Create new paste</h2>
 
     <form method="post" action="">
-        <div>
-            <div>
-                <label for="paste_title">Title:</label>
-                <input type="text" name="paste[title]" id="paste_title">
-            </div>
-            <div>
-                <label for="paste_syntax_id">Syntax:</label>
-                <select name="paste[syntax_id]" id="paste_syntax_id">
-                    {% for syntax in syntaxes %}
-                        <option value="{{ syntax.id }}">{{ syntax.displayName }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <textarea name="paste[body]" cols="40" rows="12"></textarea>
+        <div class="field">
+            <label for="paste_title">Title:</label>
+            <input type="text" name="paste[title]" id="paste_title">
         </div>
-        <div>
-            <input type="submit" value="Paste">
+        <div class="field">
+            <label for="paste_syntax_id">Syntax:</label>
+            <select name="paste[syntax_id]" id="paste_syntax_id">
+                {% for syntax in syntaxes %}
+                    <option value="{{ syntax.id }}">{{ syntax.displayName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="field">
+            <textarea name="paste[body]" cols="40" rows="12" class="code" placeholder="Enter your code..."></textarea>
+        </div>
+        <div class="field">
+            <input type="submit" value="Paste"> or just press Ctrl + Enter.
         </div>
     </form>
 

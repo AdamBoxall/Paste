@@ -3,6 +3,11 @@
 {% block main %}
 
     <h2>About</h2>
-    <p>TODO</p>
+    <h3>Why?</h3>
+    <p>No real reason. I wanted a mini-project to develop with Silex and this seemed like a fitting idea. There's also no paste site on the net that really sticks out to me as the best, so thought I would have a bash. All <a href="https://github.com/AdamBoxall/SilexPasteApp">the code is available on GitHub</a> though if you want to rip me off and compete for those precious pastes!</p>
+    <h3>Ingredients</h3>
+    <p>As mentioned, this site was built using the PHP micro-framework <a href="http://silex.sensiolabs.org/">Silex</a> and <a href="http://www.doctrine-project.org/projects/dbal.html">Doctrine's DBAL (Database Abstraction Layer)</a>. <a href="http://twig.sensiolabs.org/">Twig</a> is used for rendering templates, although it's probably not needed given how few templates there are! Additionally <a href="http://memcached.org/">Memcached</a> is used for caching the database results, and <a href="http://php.net/manual/en/book.apc.php">APC</a> for caching the opcode.</p>
+    <h3>Feedback</h3>
+    <p>Feedback and contributions via <a href="https://github.com/AdamBoxall/SilexPasteApp">GitHub</a> are always welcome.</p>
 
 {% endblock %}
