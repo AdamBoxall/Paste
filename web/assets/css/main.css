@@ -276,7 +276,7 @@ select {
 
 .code {
     font-family: monospace;
-    height: 206px;
+    height: 308px;
     width: 646px;
 }
 
@@ -297,7 +297,7 @@ input[type=button] {
 .field input[type=text],
 .field select {
     float: right;
-    width: 400px;
+    width: 350px;
 }
 
 .form-submit {

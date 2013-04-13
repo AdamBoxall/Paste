@@ -38,7 +38,7 @@ class Paste
     public function getNormalisedTitle()
     {
         if ($this->title === null) {
-            return 'Untitled';
+            return 'Mysterious';
         }
 
         return $this->title;
@@ -90,7 +90,9 @@ class Paste
 
     public function getCreatedFormatted()
     {
-        return (new \DateTime($this->created))->format('d/m/Y h:i:s');
+        return $this->getRelativeDate(
+            (new \DateTime($this->created))->getTimestamp()
+        ) . ' ago';
     }
 
     public function setCreated($created)
@@ -106,13 +108,40 @@ class Paste
 
     public function getExpiresFormatted()
     {
-        return (new \DateTime($this->created))->format('d/m/Y h:i:s');
+        return $this->getRelativeDate(
+            (new \DateTime($this->expires))->getTimestamp()
+        ) . ' ago';
     }
 
     public function setExpires($expires)
     {
         $this->expires = $expires;
         return $this;
+    }
+
+    protected function getRelativeDate($ptime)
+    {
+        $etime = time() - $ptime;
+
+        if ($etime < 1) {
+            return '0 seconds';
+        }
+
+        $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
+                    30 * 24 * 60 * 60       =>  'month',
+                    24 * 60 * 60            =>  'day',
+                    60 * 60                 =>  'hour',
+                    60                      =>  'minute',
+                    1                       =>  'second'
+                    );
+
+        foreach ($a as $secs => $str) {
+            $d = $etime / $secs;
+            if ($d >= 1) {
+                $r = round($d);
+                return $r . ' ' . $str . ($r > 1 ? 's' : '');
+            }
+        }
     }
 
     public static function fromArray(array $row)
