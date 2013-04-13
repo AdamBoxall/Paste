@@ -195,9 +195,10 @@ html, body {
 }
 
 .latest {
-    background: #d6d6d6;
+    background: #dcdbdb;
     border: 1px solid #b6b6b6;
     border-radius: 2px;
+    box-shadow: inset 0 0 4px 0 rgba(255,255,255, 0.3);
     float: right;
     margin-bottom: 16px;
     padding: 12px;
@@ -206,13 +207,26 @@ html, body {
 
 .latest ul {
     list-style: none;
-    margin-bottom: 16px;
+    margin: 0;
     padding: 0;
 }
 
 .latest li {
-    margin-bottom: 8px;
+    border-bottom: 1px solid #aeadad;
+    border-top: 1px solid #e7e7e7;
+    padding-top: 8px;
+    padding-bottom: 8px;
     overflow: hidden;
+}
+
+.latest li:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.latest li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
 }
 
 .latest a {
