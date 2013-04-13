@@ -50,31 +50,26 @@ a:hover {
     text-decoration: underline;
 }
 
+.pull-left {
+    float: left;
+}
 
-/**
- * Forms
- */
+.pull-right {
+    float: right;
+}
 
-input[type=text],
-textarea,
-select {
-    border: 1px solid #bbbbbb;
+.highlight {
+    background: #565656;
     border-radius: 2px;
-    color: #333333;
-    padding: 6px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: smaller;
+    padding: 2px 4px;
 }
 
-.code {
-    font-family: monospace;
-}
-
-input[type=submit],
-input[type=button] {
-    padding: 6px 8px;
-}
-
-.field {
-    margin-bottom: 16px;
+.lowlight {
+    color: #999999;
+    font-size: smaller;
 }
 
 
@@ -187,4 +182,80 @@ html, body {
     border-left-color: #222222;
     border-right-color: #222222;
     color: #ffffff;
+}
+
+
+/**
+ * Main
+ */
+
+.main {
+    float: left;
+    width: 660px;
+}
+
+.latest {
+    background: #d6d6d6;
+    border: 1px solid #b6b6b6;
+    border-radius: 2px;
+    float: right;
+    margin-bottom: 16px;
+    padding: 12px;
+    width: 300px;
+}
+
+.latest ul {
+    list-style: none;
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+.latest li {
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.latest a {
+    color: #222222;
+}
+
+
+/**
+ * Forms
+ */
+
+input[type=text],
+textarea,
+select {
+    border: 1px solid #bbbbbb;
+    border-radius: 2px;
+    color: #333333;
+    padding: 6px;
+}
+
+.code {
+    font-family: monospace;
+    height: 206px;
+    width: 646px;
+}
+
+input[type=submit],
+input[type=button] {
+    padding: 6px 8px;
+}
+
+.field {
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.field label {
+    float: left;
+    line-height: 36px;
+}
+
+.field input[type=text],
+.field select {
+    float: right;
+    width: 400px;
 }

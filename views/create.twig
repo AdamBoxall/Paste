@@ -13,15 +13,19 @@
             <label for="paste_syntax_id">Syntax:</label>
             <select name="paste[syntax_id]" id="paste_syntax_id">
                 {% for syntax in syntaxes %}
-                    <option value="{{ syntax.id }}">{{ syntax.displayName }}</option>
+                    {% if syntax.name == 'plain' %}
+                        <option value="{{ syntax.id }}" selected>{{ syntax.displayName }}</option>
+                    {% else %}
+                        <option value="{{ syntax.id }}">{{ syntax.displayName }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
         </div>
         <div class="field">
-            <textarea name="paste[body]" cols="40" rows="12" class="code" placeholder="Enter your code..."></textarea>
+            <textarea name="paste[body]" class="code" placeholder="Enter your code..."></textarea>
         </div>
         <div class="field">
-            <input type="submit" value="Paste"> or just press Ctrl + Enter.
+            <input type="submit" value="Paste"> or press Ctrl + Enter
         </div>
     </form>
 

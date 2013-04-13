@@ -34,18 +34,6 @@ class PasteController extends AbstractController
         );
     }
 
-    public function latestAction()
-    {
-        $pastes = $this->gateway->getLatestPastes();
-
-        return $this->render(
-            'latest.twig', [
-                'pastes' => $pastes,
-                'selected' => 'latest'
-            ]
-        );
-    }
-
     public function viewAction($pasteHex)
     {
         $paste = $this->gateway->getPaste(hexdec($pasteHex));
@@ -74,5 +62,12 @@ class PasteController extends AbstractController
                 'selected' => 'contact'
             ]
         );
+    }
+
+    protected function render($template, $vars = array())
+    {
+        $vars['latest'] = $this->gateway->getLatestPastes();
+
+        return parent::render($template, $vars);
     }
 }
