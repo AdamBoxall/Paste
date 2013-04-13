@@ -35,7 +35,7 @@ class Gateway
 
     public function getLatestPastes()
     {
-        return $this->getPasteRepository()->findLatest(10);
+        return $this->getPasteRepository()->findLatest(8);
     }
 
     public function getSyntaxList()
