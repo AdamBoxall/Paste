@@ -53,7 +53,9 @@ class Gateway
         if (!$latest) {
             // Read list from database and store for next time
             $latest = $this->getPasteRepository()->findLatest(8);
-            $this->cache->setLatestPastes($latest);
+            if (!empty($latest)) {
+                $this->cache->setLatestPastes($latest);
+            }
         }
 
         return $latest;

@@ -347,9 +347,17 @@ html, body {
     width: 660px;
 }
 
-.code {
+.code-entry {
     font-family: monospace;
     height: 271px;
+}
+
+.code-output {
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
+    margin-bottom: 16px;
 }
 
 .latest {

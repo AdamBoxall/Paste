@@ -6,12 +6,38 @@ create table syntaxes (
 ) engine=InnoDB;
 
 insert into syntaxes
+    (name, display_name)
 values
-    (null, 'php', 'PHP'),
-    (null, 'js', 'JavaScript'),
-    (null, 'html', 'HTML'),
-    (null, 'css', 'CSS'),
-    (null, 'plain', 'Plain Text');
+    ('actionscript3', 'ActionScript'),
+    ('applescript', 'AppleScript'),
+    ('asp', 'ASP'),
+    ('bash', 'Bash'),
+    ('c', 'C'),
+    ('cfm', 'ColdFusion ML'),
+    ('cobol', 'COBOL'),
+    ('coffescript', 'CoffeeScript'),
+    ('cpp', 'C++'),
+    ('csharp', 'C#'),
+    ('css', 'CSS'),
+    ('delphi', 'Delphi'),
+    ('erlang', 'Erlang'),
+    ('fortran', 'Fortran'),
+    ('fsharp', 'F#'),
+    ('haskell', 'Haskell'),
+    ('html5', 'HTML'),
+    ('java', 'Java'),
+    ('javscript', 'JavaScript'),
+    ('jquery', 'jQuery'),
+    ('lisp', 'Lisp'),
+    ('pascal', 'Pascal'),
+    ('perl', 'Perl'),
+    ('php', 'PHP'),
+    ('python', 'Python'),
+    ('ruby', 'Ruby'),
+    ('smarty', 'Smarty'),
+    ('sql', 'SQL'),
+    ('vbnet', 'VB.NET'),
+    ('plain', 'Plain Text');
 
 create table pastes (
     id int unsigned auto_increment,

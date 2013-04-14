@@ -3,6 +3,7 @@
 namespace Paste\Entity;
 
 use Paste\Entity\Syntax;
+use Paste\GeSHi\Proxy;
 
 class Paste
 {
@@ -75,6 +76,11 @@ class Paste
     public function getBody()
     {
         return $this->body;
+    }
+
+    public function getBodyFormatted()
+    {
+        return (new Proxy)->parse($this->body, $this->syntax->getName());
     }
 
     public function setBody($body)
