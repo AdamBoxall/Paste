@@ -13,10 +13,19 @@ class PasteController extends AbstractController
     {
         if ($request->isMethod('POST')) {
 
-            // Validation, maybe?
+            $paste = $request->request->get('paste');
 
+            // Define expiration
+            if (!empty($paste['expires_unit'])
+             && in_array($paste['expires_unit'], ['hour', 'day', 'week', 'month'])) {
+                $paste['expires'] = strtotime('+1 ' . $paste['expires_unit']);
+            } else {
+                $paste['expires'] = null;
+            }
+
+            // Use gateway to create paste
             $this->gateway->createPaste(
-                Paste::fromArray($request->request->get('paste'))
+                Paste::fromArray($paste)
             );
 
             // Make sure it was successful too, maybe?

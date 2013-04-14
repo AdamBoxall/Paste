@@ -1,7 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <h2>Viewing paste {{ paste.normalisedTitle }}</h2>
+    <h2>Viewing paste '{{ paste.normalisedTitle }}'</h2>
     <p>Created {{ paste.createdFormatted }}</p>
     <p>Syntax: {{ paste.syntax.displayName }}</p>
     <pre>{{ paste.body }}</pre>

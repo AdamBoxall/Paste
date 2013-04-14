@@ -29,7 +29,7 @@ class Pastes extends AbstractRepository
                 p.syntax_id = s.id
             )
             where p.id= ?
-            and (p.expires is null or p.expires > now())
+            and (p.expires is null or p.expires > unix_timestamp())
         ", array(
             $id
         ));
@@ -47,7 +47,7 @@ class Pastes extends AbstractRepository
             join syntaxes s on (
                 p.syntax_id = s.id
             )
-            where (p.expires is null or p.expires > now())
+            where (p.expires is null or p.expires > unix_timestamp())
             order by p.created desc
             limit {$limit}
         ");
@@ -64,7 +64,8 @@ class Pastes extends AbstractRepository
             'title'     => $paste->getTitle(),
             'syntax_id' => $paste->getSyntaxId(),
             'body'      => $paste->getBody(),
-            'created'   => (new \DateTime('now'))->format('Y-m-d H:i:s')
+            'created'   => time(),
+            'expires'   => $paste->getExpires()
         ]);
     }
 

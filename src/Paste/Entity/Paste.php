@@ -90,9 +90,7 @@ class Paste
 
     public function getCreatedFormatted()
     {
-        return $this->getRelativeDate(
-            (new \DateTime($this->created))->getTimestamp()
-        ) . ' ago';
+        return $this->getRelativeDateTime($this->created);
     }
 
     public function setCreated($created)
@@ -108,9 +106,7 @@ class Paste
 
     public function getExpiresFormatted()
     {
-        return $this->getRelativeDate(
-            (new \DateTime($this->expires))->getTimestamp()
-        ) . ' ago';
+        return $this->getRelativeDateTime($this->expires);
     }
 
     public function setExpires($expires)
@@ -119,12 +115,12 @@ class Paste
         return $this;
     }
 
-    protected function getRelativeDate($ptime)
+    protected function getRelativeDateTime($ptime)
     {
         $etime = time() - $ptime;
 
         if ($etime < 1) {
-            return '0 seconds';
+            return '0 seconds ago';
         }
 
         $a = array( 12 * 30 * 24 * 60 * 60  =>  'year',
@@ -139,7 +135,7 @@ class Paste
             $d = $etime / $secs;
             if ($d >= 1) {
                 $r = round($d);
-                return $r . ' ' . $str . ($r > 1 ? 's' : '');
+                return $r . ' ' . $str . ($r > 1 ? 's' : '') . ' ago';
             }
         }
     }

@@ -10,15 +10,16 @@ values
     (null, 'php', 'PHP'),
     (null, 'js', 'JavaScript'),
     (null, 'html', 'HTML'),
-    (null, 'css', 'CSS');
+    (null, 'css', 'CSS'),
+    (null, 'plain', 'Plain Text');
 
 create table pastes (
     id int unsigned auto_increment,
     title varchar(255),
     syntax_id smallint unsigned not null,
     body text not null,
-    created datetime not null,
-    expires datetime,
+    created int not null,
+    expires int,
     primary key (id),
     foreign key (syntax_id)
         references syntaxes(id)

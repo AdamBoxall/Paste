@@ -22,7 +22,17 @@
             </select>
         </div>
         <div class="cf field">
-            <textarea name="paste[body]" class="code" placeholder="Enter your code..."></textarea>
+            <label for="paste_expires_unit">Expires:</label>
+            <select name="paste[expires_unit]" id="paste_expires_unit">
+                <option value="">Never</option>
+                <option value="hour">In an hour</option>
+                <option value="day">In a day</option>
+                <option value="week">In a week</option>
+                <option value="month">In a month</option>
+            </select>
+        </div>
+        <div class="cf field">
+            <textarea name="paste[body]" class="code" placeholder="Enter your code..." required></textarea>
         </div>
         <div class="cf field">
             <div class="button form-submit">
