@@ -26,7 +26,7 @@ values
     ('haskell', 'Haskell'),
     ('html5', 'HTML'),
     ('java', 'Java'),
-    ('javscript', 'JavaScript'),
+    ('javascript', 'JavaScript'),
     ('jquery', 'jQuery'),
     ('lisp', 'Lisp'),
     ('pascal', 'Pascal'),
@@ -37,7 +37,8 @@ values
     ('smarty', 'Smarty'),
     ('sql', 'SQL'),
     ('vbnet', 'VB.NET'),
-    ('plain', 'Plain Text');
+    ('plain', 'Plain Text'),
+    ('xml', 'XML');
 
 create table pastes (
     id int unsigned auto_increment,
