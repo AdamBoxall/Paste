@@ -1,6 +1,6 @@
 $(function() {
 
-    $('.code').keydown(function(e) {
+    $('.code-entry').keydown(function(e) {
 
         // Detect tab key
         if (e.keyCode === 9) {
@@ -25,6 +25,6 @@ $(function() {
     });
 
     // Set initial focus on code textarea
-    $('.code').focus();
+    $('.code-entry').focus();
 
 });

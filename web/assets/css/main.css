@@ -367,6 +367,10 @@ html, body {
     white-space: nowrap;
 }
 
+.code-output li {
+    list-style: decimal-leading-zero;
+}
+
 .latest {
     background: #dcdbdb;
     border: 1px solid #b6b6b6;
