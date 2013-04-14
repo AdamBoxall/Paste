@@ -1,10 +1,21 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-    <h2>Viewing paste '{{ paste.normalisedTitle }}'</h2>
-    <p>Created {{ paste.createdFormatted }}</p>
-    <p>Syntax: {{ paste.syntax.displayName }}</p>
+
+    <h2>Viewing '{{ paste.normalisedTitle }}'</h2>
+
+    <div class="cf meta">
+        <ul class="pull-left options">
+            <li><a href="/{{ paste.hexId }}?raw">View Raw</a></li>
+        </ul>
+        <p class="pull-right">
+            <span class="highlight">{{ paste.syntax.displayName }}</span>
+            pasted {{ paste.createdFormatted }}
+        </p>
+    </div>
+
     <div class="echo code-output">
         {{ paste.bodyFormatted|raw }}
     </div>
+
 {% endblock %}

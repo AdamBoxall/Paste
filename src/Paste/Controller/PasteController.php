@@ -43,15 +43,20 @@ class PasteController extends AbstractController
         );
     }
 
-    public function viewAction($pasteHex)
+    public function viewAction(Request $request, $pasteHex)
     {
         $paste = $this->gateway->getPaste(hexdec($pasteHex));
 
-        // Show the expired page if paste has expired
-        $template = ($paste->hasExpired() ? 'expired.twig' : 'view.twig');
+        if ($request->query->get('raw') !== null) {
+            // Only show the paste content
+            $template = 'raw';
+        } else {
+            // Show the expired page if paste has expired
+            $template = ($paste->hasExpired() ? 'expired' : 'view');
+        }
 
         return $this->render(
-            $template, [
+            $template . '.twig', [
                 'paste' => $paste,
                 'selected' => 'view'
             ]

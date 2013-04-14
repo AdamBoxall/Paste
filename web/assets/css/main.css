@@ -162,6 +162,11 @@ input[type=button] {
  * Shared
  */
 
+html {
+    /* Force scroll to avoid page jumping about when viewing larger pastes */
+    overflow-y: scroll;
+}
+
 .island {
     width: 1000px;
     margin-left: auto;
@@ -369,6 +374,34 @@ html, body {
 
 .code-output li {
     list-style: decimal-leading-zero;
+}
+
+.meta {
+    margin-bottom: 8px;
+}
+
+.meta * {
+    margin-bottom: 0;
+}
+
+.options {
+    margin: 0;
+    padding: 0;
+}
+
+.options li {
+    border-right: 1px solid #cccccc;
+    display: inline-block;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.options li:first-child {
+    padding-left: 0;
+}
+
+.options li:last-child {
+    border-right: 0;
 }
 
 .latest {
