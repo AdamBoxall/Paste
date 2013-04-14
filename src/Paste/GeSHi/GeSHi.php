@@ -454,7 +454,7 @@ class GeSHi {
      *  The style for the actual code
      * @var string
      */
-    var $code_style = 'font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;';
+    var $code_style = 'font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:middle;';
 
     /**
      * The overall class for this code block
@@ -472,19 +472,19 @@ class GeSHi {
      * Line number styles
      * @var string
      */
-    var $line_style1 = 'font-weight: normal; vertical-align:top;';
+    var $line_style1 = 'font-weight: normal; vertical-align:middle;';
 
     /**
      * Line number styles for fancy lines
      * @var string
      */
-    var $line_style2 = 'font-weight: bold; vertical-align:top;';
+    var $line_style2 = 'font-weight: bold; vertical-align:middle;';
 
     /**
      * Style for line numbers when GESHI_HEADER_PRE_TABLE is chosen
      * @var string
      */
-    var $table_linenumber_style = 'width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;';
+    var $table_linenumber_style = 'width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:middle;';
 
     /**
      * Flag for how line numbers are displayed
