@@ -76,6 +76,7 @@ class PasteController extends AbstractController
     protected function render($template, $vars = array())
     {
         $vars['latest'] = $this->gateway->getLatestPastes();
+        $vars['count'] = $this->gateway->getPasteCount();
 
         return parent::render($template, $vars);
     }

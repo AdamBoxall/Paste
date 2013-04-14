@@ -57,6 +57,13 @@ class Pastes extends AbstractRepository
         }
     }
 
+    public function count()
+    {
+        return $this->adapter->fetchColumn("
+            select count(id) as count from pastes
+        ");
+    }
+
     public function create(Paste $paste)
     {
         $this->adapter->insert('pastes', [

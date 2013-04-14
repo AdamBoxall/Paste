@@ -217,7 +217,7 @@ html, body {
     text-align: right;
 }
 
-.footer p:last-child {
+.footer p {
     margin-bottom: 0;
 }
 

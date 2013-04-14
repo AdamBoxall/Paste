@@ -48,6 +48,11 @@ class Gateway
         return $this->getPasteRepository()->create($paste);
     }
 
+    public function getPasteCount()
+    {
+        return $this->getPasteRepository()->count();
+    }
+
     protected function getPasteRepository()
     {
         // Lazy-load the paste repository
