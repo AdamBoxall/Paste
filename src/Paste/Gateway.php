@@ -30,7 +30,9 @@ class Gateway
         if (!$paste) {
             // Read paste from database and store for next time
             $paste = $this->getPasteRepository()->findById($id);
-            $this->cache->setPaste($paste);
+            if ($paste) {
+                $this->cache->setPaste($paste);
+            }
         }
 
         if (!$paste) {

@@ -1,12 +1,11 @@
-{% extends 'base.twig' %}
-
-{% block main %}
-
-    <h2>Latest Pastes</h2>
-    <ul>
-        {% for paste in pastes %}
-            <li><a href="/{{ paste.hexId }}">{{ paste.normalisedTitle }} ({{ paste.createdFormatted }})</a></li>
-        {% endfor %}
-    </ul>
-
-{% endblock %}
+<h2>Latest Pastes</h2>
+<ul>
+    {% for paste in latest %}
+        <li>
+            <span class="pull-left"><a href="/{{ paste.hexId }}">{{ paste.normalisedTitle }}</a></span>
+            <span class="pull-right highlight">{{ paste.syntax.displayName }}</span>
+            <br>
+            <span class="lowlight">{{ paste.createdFormatted }}</span>
+        </li>
+    {% endfor %}
+</ul>

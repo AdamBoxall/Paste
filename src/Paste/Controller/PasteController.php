@@ -47,8 +47,11 @@ class PasteController extends AbstractController
     {
         $paste = $this->gateway->getPaste(hexdec($pasteHex));
 
+        // Show the expired page if paste has expired
+        $template = ($paste->hasExpired() ? 'expired.twig' : 'view.twig');
+
         return $this->render(
-            'view.twig', [
+            $template, [
                 'paste' => $paste,
                 'selected' => 'view'
             ]

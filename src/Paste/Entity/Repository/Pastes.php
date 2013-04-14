@@ -29,7 +29,6 @@ class Pastes extends AbstractRepository
                 p.syntax_id = s.id
             )
             where p.id= ?
-            and (p.expires is null or p.expires > unix_timestamp())
         ", array(
             $id
         ));

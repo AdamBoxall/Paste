@@ -104,6 +104,16 @@ class Paste
         return $this->expires;
     }
 
+    public function hasExpired()
+    {
+        if ($this->expires === null
+         || $this->expires > time()) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function getExpiresFormatted()
     {
         return $this->getRelativeDateTime($this->expires);
