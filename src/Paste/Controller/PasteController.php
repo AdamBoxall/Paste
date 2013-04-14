@@ -13,24 +13,23 @@ class PasteController extends AbstractController
     {
         if ($request->isMethod('POST')) {
 
-            $paste = $request->request->get('paste');
+            $postedPaste = $request->request->get('paste');
 
             // Define expiration
-            if (!empty($paste['expires_unit'])
-             && in_array($paste['expires_unit'], ['hour', 'day', 'week', 'month'])) {
-                $paste['expires'] = strtotime('+1 ' . $paste['expires_unit']);
+            if (!empty($postedPaste['expires_unit'])
+             && in_array($postedPaste['expires_unit'], ['hour', 'day', 'week', 'month'])) {
+                $postedPaste['expires'] = strtotime('+1 ' . $postedPaste['expires_unit']);
             } else {
-                $paste['expires'] = null;
+                $postedPaste['expires'] = null;
             }
 
-            // Use gateway to create paste
-            $this->gateway->createPaste(
-                Paste::fromArray($paste)
+            // Insert paste into database and get ID
+            $paste = $this->gateway->createPaste(
+                Paste::fromArray($postedPaste)
             );
 
-            // Make sure it was successful too, maybe?
-
-            return $this->redirect('/');
+            // Redirect to paste page
+            return $this->redirect('/' . $paste->getHexId());
         }
 
         $syntaxes = $this->gateway->getSyntaxList();

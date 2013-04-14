@@ -73,6 +73,10 @@ class Pastes extends AbstractRepository
             'created'   => time(),
             'expires'   => $paste->getExpires()
         ]);
+
+        $paste->setId($this->adapter->lastInsertId());
+
+        return $paste;
     }
 
     protected function createModel(array &$row)
