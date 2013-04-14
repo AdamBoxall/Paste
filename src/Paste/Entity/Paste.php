@@ -140,6 +140,18 @@ class Paste
         }
     }
 
+    public function toArray()
+    {
+        return [
+            'id'        => $this->getId(),
+            'title'     => $this->getTitle(),
+            'syntax_id' => $this->getSyntaxId(),
+            'body'      => $this->getBody(),
+            'created'   => $this->getCreated(),
+            'expires'   => $this->getExpires()
+        ];
+    }
+
     public static function fromArray(array $row)
     {
         $paste = new static;
