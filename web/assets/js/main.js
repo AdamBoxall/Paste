@@ -13,9 +13,13 @@ $(function() {
             return false;
         }
 
+    });
+
+    $(document).keydown(function(e) {
+
         // Detect ctrl+enter
         if (e.ctrlKey && e.keyCode == 13) {
-            $(this).parents('form').submit();
+            $('#create').submit();
         }
 
     });
