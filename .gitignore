@@ -1,3 +1,4 @@
 /vendor
 /dev
+/app/config/parameters.php
 /composer.lock

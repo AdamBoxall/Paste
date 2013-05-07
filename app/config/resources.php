@@ -10,27 +10,23 @@ use Paste\Cache;
 
 // Register database
 $app->register(new DoctrineServiceProvider, [
-    'db.options' => [
-        'driver'    => 'pdo_mysql',
-        'host'      => 'localhost',
-        'dbname'    => 'pastebang',
-        'user'      => 'root',
-        'password'  => 'swordfish',
-        'charset'   => 'utf8'
-    ]
+    'db.options' => $parameters['database']
 ]);
 
 // Register twig
 $app->register(new TwigServiceProvider, [
-    'twig.path' => realpath(__DIR__ . '/../../views'),
+    'twig.path' => $parameters['twig']['path']
 ]);
 
 // Register service provider
 $app->register(new ServiceControllerServiceProvider);
 
 // Create cache layer
-$app['paste.cache'] = $app->share(function() {
-    return new Cache('localhost', '11211');
+$app['paste.cache'] = $app->share(function() use ($parameters) {
+    return new Cache(
+        $parameters['memcache']['host'],
+        $parameters['memcache']['port']
+    );
 });
 
 // Create gateway
