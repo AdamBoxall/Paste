@@ -1,5 +1,7 @@
 <?php
 
+// Copy this file to `parameters.php` and update to match your installation.
+
 return [
 
     // Debug mode?
